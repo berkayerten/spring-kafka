@@ -1,4 +1,4 @@
-# Spring Kafka Producer
+# Spring Kafka Producer/ Consumer
 
 This project is a simple **Spring Boot Kafka Producer** application. It demonstrates how to integrate **Apache Kafka** with **Spring Kafka**, configure a producer, and publish messages to a Kafka topic. The producer sends JSON payloads to Kafka, which can then be consumed by a Kafka consumer (e.g., another Spring Boot app or CLI consumer).
 
