@@ -1,0 +1,18 @@
+server:
+  port: 8042
+spring:
+  application:
+    name: spring-kafka-consumer
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: my-group
+      auto-offset-reset: earliest
+      properties:
+        schema.registry.url: http://localhost:8011
+        spring.json.trusted.packages: "*"
+kafka:
+  json:
+    value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+  avro:
+    value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer

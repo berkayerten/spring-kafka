@@ -1,0 +1,22 @@
+server:
+  port: 8043
+spring:
+  application:
+    name: spring-kafka-producer
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      ## For single serializer format the config can be done in the property file as below.
+      ## Supporting multiple formats can be done as bean config
+      # key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        batch.size: 32768       # 32 KB
+        linger.ms: 10           # Wait up to 10ms to fill batch
+        compression.type: snappy
+        schema.registry.url: http://localhost:8011
+kafka:
+  json:
+    value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  avro:
+    value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
